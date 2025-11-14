@@ -1,0 +1,407 @@
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冲绳冬日奇遇 | 5日圣诞观鲸之旅</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Inter字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        /* 使用Inter作为基础字体 */
+        body {
+            font-family: 'Inter', 'Microsoft YaHei', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #fefcfb; /* 珊瑚礁白 */
+        }
+        /* 标题使用 Noto Serif JP 字体 */
+        .font-title {
+            font-family: 'Noto Serif JP', serif;
+        }
+        
+        /* ========================================
+        新增功能 CSS (风狮爷加载动画)
+        ========================================
+        */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #fefcfb; /* 珊瑚礁白 */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+        #shisa-loader {
+            width: 150px;
+            height: 150px;
+            animation: jiggle 1.5s infinite;
+        }
+        /* 风狮爷摇摆动画 (模拟Eisa太鼓舞) */
+        @keyframes jiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg) scale(1.05); }
+        }
+
+        /* ========================================
+        英雄区视频 CSS
+        ========================================
+        */
+        .hero-section {
+            position: relative;
+            height: 70vh; /* 保持原高度 */
+            md:height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden; /* 裁剪视频 */
+        }
+        #hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* 黑色遮罩 */
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2; /* 确保内容在遮罩之上 */
+        }
+
+        /* ========================================
+        琉球玻璃按钮 CSS
+        ========================================
+        */
+        .btn-ryukyu-glass {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            
+            /* 关键：玻璃效果 (仅Chrome/Safari) */
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        /* 红色玻璃按钮 (用于导航栏和CTA) */
+        .btn-ryukyu-glass-red {
+            background-color: rgba(217, 0, 0, 0.7); /* 半透明朱红 */
+            color: white;
+        }
+        .btn-ryukyu-glass-red:hover {
+            background-color: rgba(192, 0, 0, 0.8);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* 白色玻璃按钮 (用于Hero区) */
+        .btn-ryukyu-glass-white {
+            background-color: rgba(255, 255, 255, 0.2); /* 半透明白色 */
+            color: #d90000; /* 朱红色文字 */
+            font-weight: bold;
+        }
+        .btn-ryukyu-glass-white:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* 移除旧的背景图样式 */
+        /* .hero-bg {
+            background-image: url('...');
+        }
+        */
+
+        /* 移除旧的朱红按钮样式 */
+        /*
+        .bg-shuri-red {
+            background-color: #d90000;
+        }
+        .bg-shuri-red:hover {
+            background-color: #c00;
+        }
+        */
+        .text-shuri-red {
+            color: #d90000;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 新增: 风狮爷加载动画 -->
+    <div id="loader">
+        <!-- 一个简化的风狮爷(Shisa) SVG -->
+        <svg id="shisa-loader" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="#d90000">
+            <path d="M50 10 C 20 10, 20 40, 20 50 C 20 70, 30 90, 50 90 C 70 90, 80 70, 80 50 C 80 40, 80 10, 50 10 Z M 50 20 C 60 20, 70 25, 70 35 C 70 45, 60 50, 50 50 C 40 50, 30 45, 30 35 C 30 25, 40 20, 50 20 Z M 35 45 C 40 45, 40 55, 35 55 C 30 55, 30 45, 35 45 Z M 65 45 C 70 45, 70 55, 65 55 C 60 55, 60 45, 65 45 Z M 30 65 C 40 75, 60 75, 70 65 C 70 60, 65 60, 60 65 C 55 70, 45 70, 40 65 C 35 60, 30 60, 30 65 Z"/>
+            <path d="M 40 25 C 45 25, 45 35, 40 35 C 35 35, 35 25, 40 25 Z"/>
+            <path d="M 60 25 C 65 25, 65 35, 60 35 C 55 35, 55 25, 60 25 Z"/>
+        </svg>
+    </div>
+
+
+    <!-- 导航栏 -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <!-- 扶桑花 Logo -->
+                    <svg class="w-8 h-8 text-shuri-red mr-2" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 1.011c-1.63.09-3.23.51-4.73 1.25l-.23.11c-.3.15-.56.34-.78.55-.42.42-.76.9-.98 1.43-.24.58-.36 1.2-.36 1.83 0 .6.09 1.18.27 1.74l.09.28c.18.52.44.99.76 1.43l.06.08c.57.77 1.27 1.42 2.08 1.95l.1.07c.78.5 1.63.88 2.53 1.14l.3.08c.43.1.87.16 1.31.16s.88-.06 1.31-.16l.3-.08c.9-.26 1.75-.64 2.53-1.14l.1-.07c.81-.53 1.51-1.18 2.08-1.95l.06-.08c.32-.44.58-.91.76-1.43l.09-.28c.18-.56.27-1.14.27-1.74 0-.63-.12-1.25-.36-1.83-.22-.53-.56-1.01-.98-1.43-.22-.21-.48-.4-.78-.55l-.23-.11c-1.5-.74-3.1-1.16-4.73-1.25zM11 9.42c.24-.1.48-.15.73-.18l.27-.03c.52-.05.98-.05 1.41.02.66.1 1.28.33 1.83.68.57.36 1.05.84 1.42 1.42.36.57.6 1.21.68 1.87.07.66-.01 1.31-.24 1.93-.16.44-.38.85-.65 1.22l-.09.11c-.3.4-.66.75-1.07 1.04-.41.29-.87.52-1.36.68-.5.16-1.02.24-1.54.24-.55 0-1.08-.09-1.59-.26-.51-.17-1-.42-1.42-.75-.43-.33-.78-.73-1.06-1.18l-.1-.17c-.25-.41-.44-.87-.56-1.35-.12-.48-.18-1.01-.18-1.54 0-.58.09-1.15.27-1.7.18-.56.44-1.07.78-1.52.33-.45.73-.83 1.18-1.14.45-.31.95-.54 1.47-.69z"/>
+                    </svg>
+                    <a href="#" class="text-2xl font-bold text-blue-800">
+                        冲绳奇遇
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#itinerary" class="text-gray-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium">每日行程</a>
+                        <a href="#highlights" class="text-gray-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium">景点速览</a>
+                        <a href="#leader" class="text-gray-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium">领队介绍</a>
+                        <!-- 更新: 琉球玻璃按钮 -->
+                        <a href="#cta" class="btn-ryukyu-glass btn-ryukyu-glass-red px-4 py-2 rounded-full text-sm font-medium shadow-md">
+                            立即报名
+                        </a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <!-- 移动端菜单按钮 (可添加JS实现) -->
+                    <button class="text-gray-600 p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 英雄区域 (已修改为视频背景) -->
+    <section class="hero-section">
+        <!-- 视频 -->
+        <video autoplay loop muted playsinline id="hero-video" poster="https://placehold.co/1600x900/00bfff/ffffff?text=[冲绳海滩全景图]">
+            <!-- 
+                重要提示:
+                您需要将下面的 'src' 替换为您自己的视频文件URL (例如 .mp4, .webm)
+                这里使用一个网络上的免费素材作为占位符
+            -->
+            <source src="https://storage.pixol.co/v/1920x1080/ocean.mp4" type="video/mp4">
+            您的浏览器不支持视频播放。
+        </video>
+        <!-- 遮罩 -->
+        <div class="video-overlay"></div>
+        <!-- 内容 -->
+        <div class="hero-content p-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white shadow-xl font-title">
+                冬日冲绳 · 圣诞观鲸之旅
+            </h1>
+            <p class="mt-4 text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto shadow-lg">
+                从座头鲸的跃动到美国村的圣诞灯火，开启一场难忘的五日海岛探索。
+            </p>
+            <!-- 更新: 琉球玻璃按钮 -->
+            <a href="#cta" class="mt-8 inline-block btn-ryukyu-glass btn-ryukyu-glass-white py-3 px-8 rounded-full text-lg shadow-lg">
+                加入我们
+            </a>
+        </div>
+    </section>
+
+    <!-- 波浪分隔符 -->
+    <div style="background-color: #fefcfb;"> <!-- 珊瑚礁白背景 -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="block">
+            <path fill="#ffffff" fill-opacity="1" d="M0,192L48,176C96,160,192,128,288,133.3C384,139,480,181,576,186.7C672,192,768,160,864,138.7C960,117,1056,107,1152,122.7C1248,139,1344,181,1392,202.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <!-- 行程概览 -->
+    <section id="itinerary" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-12 font-title">
+                我们的行程计划
+            </h2>
+            <div class="space-y-12">
+                <!-- Day 1 -->
+                <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-2xl shadow-lg overflow-hidden">
+                    <div class="w-full md:w-2/5 h-64 md:h-auto">
+                        <img src="https://placehold.co/600x400/0a4a7c/ffffff?text=[座头鲸跃出水面]" alt="观鲸" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-3/5 p-8">
+                        <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1 rounded-full mb-3">12.25 | DAY 1</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">圣诞奇遇：观鲸 & 美国村</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            <strong>上午：</strong> 乘船出海，追寻冬季限定的访客——座头鲸。感受它们跃出水面的震撼瞬间。
+                            <br>
+                            <strong>晚上：</strong> 沉浸在美国村的浓厚圣诞气氛中。闪烁的彩灯、特色的商店和美味的晚餐，共同度过一个难忘的圣诞之夜。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="flex flex-col md:flex-row-reverse items-center bg-gray-50 rounded-2xl shadow-lg overflow-hidden">
+                    <div class="w-full md:w-2/5 h-64 md:h-auto">
+                        <img src="https://placehold.co/600x400/2a9d8f/ffffff?text=[美丽海水族馆-黑潮之海]" alt="美丽海水族馆" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-3/5 p-8">
+                        <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1 rounded-full mb-3">12.26 | DAY 2</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">北部巡礼：自然与海洋的诗篇</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            全天北部巴士一日游，打卡经典地标：
+                            <br>• <strong>萬座毛：</strong> 欣赏象鼻岩和壮丽的海岸悬崖。
+                            <br>• <strong>古宇利岛：</strong> 穿过跨海大桥，在“恋之岛”上欣赏果冻般的海水。
+                            <br>• <strong>美丽海水族馆：</strong> 探访“黑潮之海”大水槽，与鲸鲨和魔鬼鱼面对面。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-2xl shadow-lg overflow-hidden">
+                    <div class="w-full md:w-2/5 h-64 md:h-auto">
+                        <img src="https://placehold.co/600x400/81c784/ffffff?text=[渡嘉敷岛徒步]" alt="渡嘉敷岛" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-3/5 p-8">
+                        <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1 rounded-full mb-3">12.27 | DAY 3</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">离岛探险：徒步渡嘉敷岛</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            前往庆良间群岛，登陆「渡嘉敷岛」。这里以世界顶级的“庆良间蓝”海水闻名。我们将远离尘嚣，用脚步丈量这座美丽的小岛，沿着观景步道徒步，登高望远，享受纯粹的自然风光。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="flex flex-col md:flex-row-reverse items-center bg-gray-50 rounded-2xl shadow-lg overflow-hidden">
+                    <div class="w-full md:w-2/5 h-64 md:h-auto">
+                        <img src="https://placehold.co/600x400/f4a261/ffffff?text=[那霸国际通购物]" alt="那霸市区" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-3/5 p-8">
+                        <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1 rounded-full mb-3">12.28 | DAY 4</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">那霸漫步：购物 & 自由解散</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            <strong>上午：</strong> 在那霸市区自由活动。你可以在国际通为亲友挑选伴手礼，或在DFS环球免税店享受最后的购物时光。
+                            <br>
+                            <strong>下午：</strong> 带着满满的收获和美好的回忆，在市区愉快解散。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 景点速览 -->
+    <section id="highlights" class="py-16 md:py-24 bg-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-12 font-title">
+                行程亮点速览
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 景点卡片 -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://placehold.co/600x400/e76f51/ffffff?text=[美国村圣诞灯饰]" class="w-full h-48 object-cover" alt="美国村">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">美国村圣诞夜</h3>
+                        <p class="mt-2 text-gray-600">浓厚的异国风情，璀璨的圣诞灯饰，是冬日冲绳的必去之地。</p>
+                    </div>
+                </div>
+                <!-- 景点卡片 -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://placehold.co/600x400/264653/ffffff?text=[萬座毛象鼻岩]" class="w-full h-48 object-cover" alt="萬座毛">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">萬座毛</h3>
+                        <p class="mt-2 text-gray-600">标志性的象鼻岩，感受海风与浪花拍打悬崖的壮丽景色。</p>
+                    </div>
+                </div>
+                <!-- 景点卡片 -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://placehold.co/600x400/58a4b0/ffffff?text=[古宇利大桥]" class="w-full h-48 object-cover" alt="古宇利岛">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">古宇利岛</h3>
+                        <p class="mt-2 text-gray-600">行驶在“漂浮”于海面上的跨海大桥，两旁是无尽的碧海蓝天。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 领队介绍 -->
+    <section id="leader" class="py-16 md:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div class="flex-shrink-0">
+                <img src="https://placehold.co/300x300/e9c46a/ffffff?text=[领队照片]" alt="领队照片" class="w-48 h-48 md:w-60 md:h-60 rounded-full object-cover shadow-xl border-4 border-white">
+            </div>
+            <div class="text-center md:text-left">
+                <h2 class="text-3xl font-bold text-blue-900 font-title">认识你的领队</h2>
+                <h3 class="text-2xl font-medium text-gray-700 mt-2">[领队姓名]</h3>
+                <p class="mt-4 text-gray-600 leading-relaxed">
+                    [这里是领队的自我介绍。一位热爱冲绳、经验丰富的向导，将带你发现冲绳最地道的美。无论是寻找最佳拍照点还是隐藏的美食，交给他/她准没错！请在这里替换成领队的真实介绍。]
+                </p>
+                <div class="mt-6 space-y-2">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <span class="font-semibold text-gray-700 w-20">联系方式:</span>
+                        <span class="text-blue-600">[领队的联系电话/微信]</span>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start">
+                        <span class="font-semibold text-gray-700 w-20">邮箱:</span>
+                        <span class="text-blue-600">[领队的电子邮箱]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 报名区域 CTA -->
+    <section id="cta" class="bg-shuri-red">
+        <div class="max-w-4xl mx-auto py-16 px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white font-title">
+                准备好出发了吗？
+            </h2>
+            <p class="text-lg text-red-100 mt-4 mb-8">
+                名额有限，立即锁定你的冬日海岛假期！
+            </p>
+            <!-- 更新: CTA区域的按钮样式与Hero区统一, 使用白色玻璃按钮 -->
+            <a href="#" class="inline-block btn-ryukyu-glass btn-ryukyu-glass-white py-3 px-10 rounded-full text-lg shadow-lg">
+                立即报名
+            </a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 冲绳奇遇之旅. 保留所有权利.</p>
+            <p class="text-sm mt-1">一个难忘的旅程即将开始</p>
+        </div>
+    </footer>
+
+    <!-- 新增: JavaScript (用于隐藏加载动画) -->
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                // 等待动画淡出
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500); // 匹配CSS中的 0.5s transition
+            }
+        });
+    </script>
+
+</body>
+</html>
