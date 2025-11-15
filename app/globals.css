@@ -164,78 +164,48 @@ img {
   animation-duration: 60s;
 }
 
-/* Theme band */
+/* Section spacing */
 
 .rw-band {
   padding: 96px 0;
 }
 
-.rw-theme-band {
-  background: linear-gradient(180deg, var(--rw-yellow) 0%, #fde9a1 100%);
-  position: relative;
-  overflow: hidden;
+/* Highlights */
+
+.rw-highlight-band {
+  background: linear-gradient(180deg, var(--rw-yellow) 0%, #fde3b0 100%);
 }
 
-.rw-theme-band::after {
-  content: "";
-  position: absolute;
-  inset: auto auto -40px 50%;
-  width: 160%;
-  height: 160px;
+.rw-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.rw-highlight-card {
   background: #fff;
-  opacity: 0.3;
-  border-radius: 50%;
-  transform: translateX(-50%);
-  filter: blur(20px);
-}
-
-.rw-theme-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 50px;
-  align-items: center;
-}
-
-.rw-theme-illustration {
-  position: relative;
-  padding: 32px;
-  border-radius: 36px;
-  background: #fff9ec;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-}
-
-.rw-theme-illustration img {
   border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.rw-theme-badge {
-  position: absolute;
-  width: 110px;
-  right: -32px;
-  top: -32px;
-  animation: float 12s ease-in-out infinite;
+.rw-highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
 }
 
-.rw-theme-copy h3 {
-  margin: 0 0 16px;
+.rw-highlight-card h3 {
+  margin: 0 0 10px;
   font-family: var(--font-serif), "Songti SC", serif;
-  font-size: 28px;
+  font-size: 20px;
 }
 
-.rw-theme-copy p {
-  margin: 0 0 16px;
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-.rw-theme-copy ul {
+.rw-highlight-card p {
   margin: 0;
-  padding-left: 20px;
-  display: grid;
-  gap: 10px;
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--rw-muted);
 }
 
 /* Itinerary band */
@@ -244,143 +214,66 @@ img {
   background: linear-gradient(180deg, #fffaf0 0%, var(--rw-sand) 100%);
 }
 
-.rw-itinerary-list {
+.rw-day-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
 }
 
-.rw-itinerary-card {
-  background: white;
-  border-radius: 28px;
-  padding: 22px 24px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.rw-itinerary-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
-}
-
-.rw-itinerary-card h4 {
-  margin: 0 0 10px;
-  font-family: var(--font-serif), "Songti SC", serif;
-  font-size: 20px;
-}
-
-.rw-itinerary-card p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--rw-muted);
-}
-
-.rw-itinerary-stamp {
-  margin-top: 40px;
-  padding: 20px 24px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.85);
-  display: inline-flex;
-  align-items: center;
-  gap: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.rw-itinerary-stamp img {
-  width: 90px;
-}
-
-.rw-itinerary-stamp p {
-  margin: 0;
-  font-size: 14px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--rw-muted);
-}
-
-.rw-itinerary-stamp span {
-  font-size: 16px;
-}
-
-/* Guides */
-
-.rw-guide-band {
-  background: var(--rw-sand);
-}
-
-.rw-guide-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 30px;
-}
-
-.rw-guide-card {
+.rw-day-card {
   background: #fff;
   border-radius: 32px;
   padding: 28px;
-  display: grid;
-  grid-template-columns: 120px 1fr 120px;
-  gap: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.rw-guide-photo img {
-  border-radius: 24px;
-}
-
-.rw-guide-copy h3 {
-  margin: 0;
-  font-size: 22px;
-  font-family: var(--font-serif), "Songti SC", serif;
-}
-
-.rw-guide-title {
-  margin: 6px 0 12px;
-  font-size: 14px;
-  color: var(--rw-muted);
-  letter-spacing: 0.08em;
+.rw-day-header span {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(39, 48, 67, 0.08);
+  font-size: 12px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.rw-guide-copy p {
-  margin: 0 0 12px;
-  font-size: 14px;
-  line-height: 1.8;
+.rw-day-header h3 {
+  margin: 10px 0 0;
+  font-family: var(--font-serif), "Songti SC", serif;
+  font-size: 22px;
 }
 
-.rw-guide-copy ul {
+.rw-day-card ul {
+  list-style: none;
   margin: 0;
-  padding-left: 18px;
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.rw-guide-contact {
-  border: 1px dashed rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-  padding: 16px;
-  text-align: center;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  font-size: 13px;
-  line-height: 1.5;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(245, 191, 210, 0.2),
-    rgba(245, 191, 210, 0.2) 12px,
-    rgba(201, 240, 249, 0.2) 12px,
-    rgba(201, 240, 249, 0.2) 24px
-  );
+  gap: 14px;
 }
 
-.rw-guide-contact span {
-  font-size: 12px;
+.rw-day-card li {
+  padding-left: 14px;
+  border-left: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.rw-day-card strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.rw-day-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
   color: var(--rw-muted);
 }
+
 
 /* Pricing */
 
@@ -419,6 +312,27 @@ img {
   line-height: 1.7;
 }
 
+.rw-price-info h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--rw-muted);
+}
+
+.rw-price-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.rw-price-columns > div {
+  background: rgba(255, 248, 236, 0.8);
+  border-radius: 22px;
+  padding: 18px 20px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
 .rw-price-illustrations {
   display: flex;
   flex-direction: column;
@@ -435,121 +349,7 @@ img {
   animation: float 10s ease-in-out infinite;
 }
 
-/* Gallery */
-
-.rw-gallery-band {
-  background: #fdf8ee;
-}
-
-.rw-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  margin-bottom: 32px;
-}
-
-.rw-gallery-card {
-  background: #fff;
-  border-radius: 28px;
-  padding: 16px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-}
-
-.rw-gallery-card:hover {
-  transform: translateY(-8px) scale(1.01);
-}
-
-.rw-gallery-card img {
-  border-radius: 20px;
-  height: 220px;
-  object-fit: cover;
-  width: 100%;
-}
-
-.rw-gallery-card figcaption {
-  margin-top: 12px;
-  font-size: 14px;
-  color: var(--rw-muted);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.rw-gallery-card strong {
-  font-size: 15px;
-  color: var(--rw-ink);
-  font-family: var(--font-serif), "Songti SC", serif;
-}
-
-.rw-scroll-indicator {
-  width: 180px;
-  height: 180px;
-  margin: 0 auto;
-  border-radius: 50%;
-  background: white;
-  border: 4px solid var(--rw-yellow);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 13px;
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
-}
-
-.rw-scroll-indicator span {
-  font-size: 24px;
-  font-weight: 700;
-  font-family: var(--font-serif), "Songti SC", serif;
-}
-
-/* Finale */
-
-.rw-finale {
-  background: var(--rw-red);
-  color: #fff7f0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.rw-finale h2 {
-  font-family: var(--font-serif), "Songti SC", serif;
-  font-size: clamp(48px, 6vw, 72px);
-  margin: 0 0 12px;
-}
-
-.rw-finale p {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.rw-finale-ornament {
-  margin: 40px auto 0;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
-  padding: 24px 40px;
-  display: inline-flex;
-}
-
-.rw-finale-ornament img {
-  width: 140px;
-}
-
-.rw-finale::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 120px;
-  background: rgba(255, 255, 255, 0.12);
-  bottom: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-}
+/* Additional layout helpers removed with old sections */
 
 /* Motion helpers */
 
@@ -587,17 +387,9 @@ img {
     flex-direction: column;
   }
 
-  .rw-theme-grid {
+  .rw-highlight-grid,
+  .rw-day-grid {
     grid-template-columns: 1fr;
-  }
-
-  .rw-guide-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .rw-guide-contact {
-    min-height: 140px;
   }
 
   .rw-price-card {
@@ -620,18 +412,12 @@ img {
     right: -10px;
   }
 
-  .rw-theme-copy ul,
-  .rw-price-card ul,
-  .rw-guide-copy ul {
+  .rw-price-card ul {
     padding-left: 14px;
   }
 
-  .rw-gallery-card img {
-    height: 180px;
-  }
-
-  .rw-scroll-indicator {
-    width: 150px;
-    height: 150px;
+  .rw-price-columns {
+    grid-template-columns: 1fr;
   }
 }
+
