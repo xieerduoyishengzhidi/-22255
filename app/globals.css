@@ -173,13 +173,13 @@ img {
 /* Highlights */
 
 .rw-highlight-band {
-  background: linear-gradient(180deg, var(--rw-yellow) 0%, #fde3b0 100%);
+  background: linear-gradient(180deg, #e6f3ff 0%, #f1f8ff 100%);
 }
 
 .rw-highlight-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .rw-highlight-card {
@@ -188,11 +188,28 @@ img {
   padding: 24px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .rw-highlight-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+}
+
+.rw-highlight-photo {
+  width: 230px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.rw-highlight-photo img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .rw-highlight-card h3 {
@@ -211,7 +228,7 @@ img {
 /* Itinerary band */
 
 .rw-itinerary-band {
-  background: linear-gradient(180deg, #fffaf0 0%, var(--rw-sand) 100%);
+  background: linear-gradient(180deg, #e7f5ff 0%, #f5fbff 100%);
 }
 
 .rw-day-grid {
@@ -230,7 +247,7 @@ img {
   gap: 18px;
 }
 
-.rw-day-header span {
+.rw-day-label span {
   display: inline-block;
   padding: 6px 14px;
   border-radius: 999px;
@@ -238,6 +255,14 @@ img {
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.rw-day-label small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--rw-muted);
 }
 
 .rw-day-header h3 {
@@ -252,25 +277,114 @@ img {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .rw-day-card li {
-  padding-left: 14px;
-  border-left: 2px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  border-left: none;
 }
 
-.rw-day-card strong {
+.rw-activity-time {
+  width: 70px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--rw-red);
+  letter-spacing: 0.04em;
+}
+
+.rw-activity-copy strong {
   display: block;
   font-size: 14px;
   margin-bottom: 6px;
   letter-spacing: 0.02em;
 }
 
-.rw-day-card p {
+.rw-activity-copy p {
   margin: 0;
   font-size: 14px;
   line-height: 1.8;
+  color: var(--rw-muted);
+}
+
+/* Guides */
+
+.rw-guide-band {
+  background: var(--rw-sand);
+}
+
+.rw-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 30px;
+}
+
+.rw-guide-card {
+  background: #fff;
+  border-radius: 32px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 120px 1fr 120px;
+  gap: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.rw-guide-photo img {
+  border-radius: 24px;
+}
+
+.rw-guide-copy h3 {
+  margin: 0;
+  font-size: 22px;
+  font-family: var(--font-serif), "Songti SC", serif;
+}
+
+.rw-guide-title {
+  margin: 6px 0 12px;
+  font-size: 14px;
+  color: var(--rw-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rw-guide-copy p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.rw-guide-copy ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.rw-guide-contact {
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 1.5;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(245, 191, 210, 0.2),
+    rgba(245, 191, 210, 0.2) 12px,
+    rgba(201, 240, 249, 0.2) 12px,
+    rgba(201, 240, 249, 0.2) 24px
+  );
+}
+
+.rw-guide-contact span {
+  font-size: 12px;
   color: var(--rw-muted);
 }
 
@@ -349,7 +463,51 @@ img {
   animation: float 10s ease-in-out infinite;
 }
 
-/* Additional layout helpers removed with old sections */
+/* Finale */
+
+.rw-finale {
+  background: var(--rw-red);
+  color: #fff7f0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.rw-finale h2 {
+  font-family: var(--font-serif), "Songti SC", serif;
+  font-size: clamp(48px, 6vw, 72px);
+  margin: 0 0 12px;
+}
+
+.rw-finale p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.rw-finale-ornament {
+  margin: 40px auto 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 24px 40px;
+  display: inline-flex;
+}
+
+.rw-finale-ornament img {
+  width: 140px;
+}
+
+.rw-finale::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.12);
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
 
 /* Motion helpers */
 
@@ -387,9 +545,22 @@ img {
     flex-direction: column;
   }
 
-  .rw-highlight-grid,
+  .rw-highlight-card {
+    flex-direction: column;
+    text-align: left;
+  }
+
   .rw-day-grid {
     grid-template-columns: 1fr;
+  }
+
+  .rw-guide-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .rw-guide-contact {
+    min-height: 140px;
   }
 
   .rw-price-card {
@@ -418,6 +589,10 @@ img {
 
   .rw-price-columns {
     grid-template-columns: 1fr;
+  }
+
+  .rw-highlight-photo {
+    width: 100%;
   }
 }
 
