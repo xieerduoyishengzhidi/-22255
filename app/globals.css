@@ -2,6 +2,7 @@
   --rw-sand: #f4f0eb;
   --rw-pink: #f5bfd2;
   --rw-yellow: #f9dd63;
+  --rw-bright-yellow: #ffff00;
   --rw-blue: #cfeff9;
   --rw-red: #c6282d;
   --rw-ink: #1f1f1f;
@@ -72,7 +73,8 @@ img {
 .rw-hero {
   position: relative;
   padding: 110px 0 90px;
-  background: linear-gradient(180deg, var(--rw-pink) 0%, #f8e8ee 35%, var(--rw-sand) 100%);
+  background: var(--rw-red);
+  color: #fff7f0;
   overflow: hidden;
 }
 
@@ -111,6 +113,7 @@ img {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.08);
   font-size: 13px;
+  color: var(--rw-ink);
 }
 
 .rw-hero-illustration {
@@ -178,8 +181,8 @@ img {
   position: absolute;
   inset: 0;
   background-image: url("/visuals/wave-pattern.png");
-  background-repeat: repeat;
-  background-size: clamp(360px, 32vw, 520px);
+  background-repeat: round;
+  background-size: clamp(108px, 9.6vw, 156px);
   background-position: 0 0;
   opacity: 0.16;
   animation: wave-glide 70s linear infinite;
@@ -196,7 +199,7 @@ img {
 /* Highlights */
 
 .rw-highlight-band {
-  background: linear-gradient(180deg, #e6f3ff 0%, #f1f8ff 100%);
+  background: var(--rw-bright-yellow);
 }
 
 .rw-highlight-grid {
@@ -251,7 +254,7 @@ img {
 /* Itinerary band */
 
 .rw-itinerary-band {
-  background: linear-gradient(180deg, #e7f5ff 0%, #f5fbff 100%);
+  background: var(--rw-bright-yellow);
 }
 
 .rw-day-grid {
@@ -335,7 +338,7 @@ img {
 /* Guides */
 
 .rw-guide-band {
-  background: var(--rw-sand);
+  background: var(--rw-bright-yellow);
 }
 
 .rw-guide-grid {
@@ -415,7 +418,7 @@ img {
 /* Pricing */
 
 .rw-price-band {
-  background: linear-gradient(180deg, #fff9ef 0%, #f8dcb0 100%);
+  background: var(--rw-bright-yellow);
 }
 
 .rw-price-card {
